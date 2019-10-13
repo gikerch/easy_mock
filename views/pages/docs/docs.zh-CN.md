@@ -1,11 +1,29 @@
-# Easy Mock
-Easy Mock 是一个可视化，并且能快速生成 **模拟数据** 的持久化服务。
-忘掉下面这些实用但麻烦的 Mock 方式吧。在你用了 Easy Mock 之后，你肯定会爱不释手的。另外，如果使用时让你不快乐，那么请一定要记得 [反馈](#fan-kui)。
+# Easy Server
 
-**常见的 Mock 方式：**
-- 将模拟数据直接写在代码里
-- 利用 JavaScript 拦截请求
-- 利用 Charles、 Fiddler 等代理工具拦截请求
+## 背景
+**前后端分离**，**服务微服务化**的演进，这两者之间有个共同点就是服务之间的调用都是通过`RESTFul API`来进行的，这样之前的单体应用划分成多个服务，也就是之前零散分布在各个应用系统中的服务现在集中在同一的`API`服务平台中，这样服务之间的接口定义如何在各个团队之间快速的传播、查看、修改就是个问题了，这时候`swagger`出现了。
+
+`Swagger`是一个规范和完整的框架，用于生成d、描述、调用和可视化`RESTful`风格的`Web`服务。`Swagger`的目标是对`REST API`定义一个标准的和语言无关的接口，可让人和计算机无需访问源码、文档或网络流量监测就可以发现和理解服务的能力。当通过Swagger进行正确定义，用户可以理解远程服务并使用最少实现逻辑与远程服务进行交互。
+
+**Swagger工具可以满足下列需求：**
+- `Swagger`可以生成一个交互性的API控制台，开发者可以用来快速学习API，同时也方便测试人员了解API。 
+- `Swagger`支持OpenApi规范生成代码，生成的客户端和服务器端框架代码可以加速开发和测试速度。
+- `Swagger`文件可以用不同的编程语言的代码注释中自动生成。
+- `Swagger`文档可作为客户产品文档的一部分进行发布，可用于项目内部API审核，支持API自动生成同步的在线文档。
+
+**swagger项目：**
+`Swagger`是一组开源项目，其中主要要项目如下：
+- `Swagger-ui`：这是一套 HTML/CSS/JS 框架用于解析遵守 Swagger spec 的 JSON 或 YML 文件，可以为 Swagger 兼容API动态生成文档。
+- `Swagger-editor`：这是在线编辑器，用于验证你的 YML/JSON 格式的内容是否违反Swagger spec 。Swagger spec提供了一个方法，使我们可以用指定的JSON或者 YAML 摘要来描述你的API。可让使用者在浏览器里以 YAML 格式编辑Swagger API规范并实时预览文档。可以生成有效的Swagger JSON描述，并用于所有Swagger工具中。
+- `Swagger-codegen`：一个模板驱动引擎，通过分析用户 Swagger 资源声明，这个工具可以为不同的平台生成客户端 SDK（比如 Java、JavaScript、Python 等）。这些客户端代码帮助开发者在一个规范平台中整合 API ，并且提供了更多健壮的实现，可能包含了多尺度、线程，和其他重要的代码。
+- `Swagger-core`: 用于Java/Scala的的 Swagger 实现。与JAX-RS(Jersey、Resteasy、CXF...)、Servlets和Play框架进行集成。
+- `Swagger-js`: 用于 JavaScript 的 Swagger 实现。
+  
+
+### Easy Server 特性
+- 可视化，并且能快速生成 **模拟数据** 的持久化服务
+- 通过编写`json`格式的`API`配置文件，支持API自动生成同步的在线文档。
+- 提供了模板驱动引擎，通过分析用户对 API 的资源声明，这个工具可以为不同的平台生成服务端和客户端 SDK（比如 Java、JavaScript、Python 等）。这些客户端代码帮助开发者在一个规范平台中整合 API ，并且提供了更多健壮的实现，可能包含了多尺度、线程，和其他重要的代码。
 
 ## 快速开始
 ### 演示项目
@@ -315,7 +333,6 @@ Easy Mock 是一个可视化，并且能快速生成 **模拟数据** 的持久�
 
 当你想要返回正常的 mock 数据的时候，修改 _res.status 为 200，或者将整个 _res 删掉即可。
 
-
 ## Tips
 
 掌握这部分内容，可进一步提高效率。
@@ -436,9 +453,4 @@ Easy Mock 并没有强制要求使用 Swagger，所以即使没有 Swagger 我�
 - 创建一个新的项目，`Swagger Docs API` 文本框填写刚刚复制的 URL
 - 填写完其它内容点击创建即可
 
-## 其它
-### 反馈
 
-扫描以下二维码，有任何问题可以在群内反馈。
-
-![Easy Mock 反馈群](./images/qq-qun.jpg) {.qq-qun}

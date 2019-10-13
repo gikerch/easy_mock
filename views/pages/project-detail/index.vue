@@ -56,6 +56,7 @@
               <Icon type="loop"></Icon> {{$t('p.detail.syncSwagger.action')}}
             </li>
             <li @click="download"><Icon type="code-download"></Icon> {{$tc('p.detail.download', 1)}}</li>
+            <li @click="build"><Icon type="folder"></Icon> {{$tc('p.detail.build')}}</li>
           </ul>
         </div>
         <div class="em-proj-detail__members" v-if="project.members.length">
@@ -89,6 +90,10 @@ import debounce from 'lodash/debounce'
 import * as api from '../../api'
 import Project from '../new/project'
 import MockExpand from './mock-expand'
+
+import Vue from 'Vue'
+import axios from 'axios'
+Vue.use(axios)
 
 export default {
   name: 'projectDetail',
@@ -260,6 +265,21 @@ export default {
       } else {
         api.mock.export(this.project._id)
       }
+    },
+    // 生成Python API代码
+    build () {
+      axios.get('http://127.0.0.1:5000/build?filename=' + this.project.swagger_url)
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      this.$Notice.success({
+        title: 'Api生成成功',
+        desc: this.$t('Flask Api 生成成功, 保存到本地！')
+      })
+      // alert(this.project.swagger_url)
     },
     updateBySwagger () {
       if (!this.project.swagger_url) {

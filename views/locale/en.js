@@ -163,6 +163,7 @@ export default {
       nav: ['Mock List', 'Setting'],
       workbench: 'Work Station',
       download: 'Downlaod as zip file | Download',
+      build: 'Build Python API',
       member: 'Member List',
       keyboards: [
         { category: 'Navigation' },

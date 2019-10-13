@@ -19,6 +19,16 @@
                 <span slot="prepend">/</span>
               </i-input>
             </Form-item>
+
+            <Form-item label="Query" v-if="temp.method=='get'">
+              <i-input v-model="temp.parameters">
+              </i-input>
+            </Form-item>
+            <Form-item label="Body" v-if="temp.method!=='get'">
+              <i-input v-model="temp.parameters">
+              </i-input>
+            </Form-item>
+            
             <Form-item :label="$t('p.detail.columns[0]')">
               <i-input v-model="temp.description"></i-input>
             </Form-item>
@@ -79,7 +89,8 @@ export default {
         url: '',
         mode: '{"data": {}}',
         method: 'get',
-        description: ''
+        description: '',
+        parameters: ''
       }
     }
   },
@@ -131,6 +142,7 @@ export default {
       this.temp.mode = this.mockData.mode
       this.temp.method = this.mockData.method
       this.temp.description = this.mockData.description
+      this.temp.parameters = this.mockData.parameters
     }
 
     this.$nextTick(() => {

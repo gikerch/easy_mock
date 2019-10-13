@@ -13,6 +13,58 @@
       <Tab-pane :label="$t('p.detail.expand.tab[1]')" name="response" v-if="mock.response_model">
         <Table :columns="columnsResponse" :data="response"></Table>
       </Tab-pane>
+      <Tab-pane label="客户端代码" name="client">
+        <Collapse>
+          <Panel>
+            Python Requests
+            <div slot="content">
+              <p>
+                <pre>import requests
+
+url = "https://www.wisers.ai/"
+querystring = {"api":"ailab-demo-apilb.wisers.com:8000/rel-ext/wicore/extract_relation"}
+payload = "{\"text\":\"2018年6月6日下午，上海壹账通金融科技有限公司副总裁陈烨一行莅临洛阳高新区管委会交流学习，自贸区管委会副主任郭卫东，高新区金融监管与服务局局长王玉晓共同会见了陈烨一行。\"}"
+headers = {
+    'accept': "*/*",
+    'accept-encoding': "gzip, deflate, br",
+    'accept-language': "zh-CN,zh;q=0.9,en;q=0.8",
+    'connection': "keep-alive",
+    'content-length': "425",
+    'content-type': "application/json",
+    'cookie': "pll_language=zh-hk; ROUTEID=.corp-myweb01; _ga=GA1.2.336027509.1570607214; _gid=GA1.2.14128610.1570607214",
+    'host': "www.wisers.ai",
+    'origin': "https://www.wisers.ai",
+    'referer': "https://www.wisers.ai/zh-cn/browse/relation-extraction/demo/",
+    'sec-fetch-mode': "cors",
+    'sec-fetch-site': "same-origin",
+    'user-agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+    'cache-control': "no-cache",
+    'postman-token': "dc47d5a8-dbc9-2fee-fa39-7e33c90953ee"
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
+print(response.text)</pre>
+              </p>
+            </div>
+          </Panel>
+          <Panel>
+            cURL
+            <div slot="content">
+              <p>
+                <pre>curl -X POST "https://generator3.swagger.io/api/generate" -H "accept: application/octet-stream"</pre>
+              </p>
+            </div>
+          </Panel>
+          <Panel>
+            Go
+            <div slot="content">
+              <p>
+                <pre>功能开发中</pre>
+              </p>
+            </div>
+          </Panel>
+        </Collapse>
+      </Tab-pane>
       <Tab-pane label="Class Model" name="class" v-if="mock.response_model && entities.js.length">
         <Collapse>
           <Panel>
